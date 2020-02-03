@@ -1,24 +1,14 @@
 
 exports.up = function(knex) {
     return knex.schema
-        .createTable("grade_levels", tbl => {
-            tbl.increments();
-            tbl.string("grade_number", 255)
-                .notNullable();
-        })
         .createTable("students", tbl => {
             tbl.increments();
             tbl.string("name", 255)
                 .notNullable();
             tbl.integer("age")
                 .notNullable();
-            tbl.integer("grade_id")
-                .unsigned()
-                .notNullable()
-                .references("id")
-                .inTable("grade_levels")
-                .onDelete("RESTRICT")
-                .onUpdate("CASCADE");
+            tbl.string("grade", 255)
+                .notNullable();
             tbl.binary("image")
             tbl.text("bio")
                 .notNullable();

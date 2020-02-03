@@ -9,3 +9,5 @@ const Students = require('./studentsModel');
 router.get('/', (req, res) => {
     
 })
+
+module.exports = router;
