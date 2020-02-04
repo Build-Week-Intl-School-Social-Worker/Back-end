@@ -8,6 +8,7 @@ const server = express();
 const authRouter = require('../auth/authRouter');
 const studentsRouter = require('../students/studentsRouter');
 const rolesRouter = require('../roles/rolesRouter');
+const authenticate = require('../auth/authenticate');
 
 // global middlewares
 server.use(helmet());
@@ -17,6 +18,6 @@ server.use(express.json());
 // routes
 server.use("/auth", authRouter);
 server.use("/api/roles", rolesRouter);
-server.use("api/students", studentsRouter);
+server.use("/api/students", authenticate, studentsRouter);
 
 module.exports = server;
