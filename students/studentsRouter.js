@@ -38,4 +38,17 @@ router.post('/', (req, res) => {
     })
 })
 
+router.put('/:id', (req, res) => {
+    const { id } = req.params;
+    const changes = req.body;
+    const updatedStudent = { ...changes, id };
+    Students.update(id, changes)
+        .then(student => {
+            res.status(200).json({ message: "Student updated successfully", updatedStudent });
+        })
+        .catch(err => {
+            res.status(500).json({ error: "server error", err });
+        })
+})
+
 module.exports = router;

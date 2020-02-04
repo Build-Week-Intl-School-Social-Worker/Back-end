@@ -24,9 +24,16 @@ const add = student => {
     });
 };
 
+const update = (id, changes) => {
+  return db('students')
+    .where({ id })
+    .update(changes);
+}
+
 module.exports = {
   get,
   findById,
   findBy,
-  add
+  add,
+  update
 };
