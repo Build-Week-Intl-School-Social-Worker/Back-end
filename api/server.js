@@ -18,6 +18,6 @@ server.use(express.json());
 // routes
 server.use("/auth", authRouter);
 server.use("/api/roles", rolesRouter);
-server.use("/api/students", authenticate, studentsRouter);
+server.use("/api/students", studentsRouter);
 
 module.exports = server;
