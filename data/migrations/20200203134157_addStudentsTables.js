@@ -16,7 +16,7 @@ exports.up = function(knex) {
                 .notNullable();
             tbl.boolean("insurance_card")
                 .notNullable();
-            tbl.date("expire_date")
+            tbl.string("expire_date")
                 .notNullable();
             tbl.boolean("birth_cert")
                 .notNullable();
