@@ -49,5 +49,4 @@ exports.down = function(knex) {
     return knex.schema
         .dropTableIfExists("user_students")
         .dropTableIfExists("students")
-        .dropTableIfExists("grade_levels");
 };
