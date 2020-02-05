@@ -11,6 +11,7 @@ const rolesRouter = require('../roles/rolesRouter');
 const usersRouter = require('../users/usersRouter');
 const authenticate = require('../auth/authenticate');
 const stripPasswords = require('../middlewares/stripPasswords');
+const visitsRouter = require('../visits/visitsRouter');
 
 // global middlewares
 server.use(helmet());
@@ -22,5 +23,6 @@ server.use("/auth", authRouter);
 server.use("/api/roles", rolesRouter);
 server.use("/api/users", authenticate, usersRouter);
 server.use("/api/students", authenticate, studentsRouter);
+server.use("/api/visits", authenticate, visitsRouter);
 
 module.exports = server;
