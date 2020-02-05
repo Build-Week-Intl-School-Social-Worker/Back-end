@@ -5,7 +5,7 @@ const Users = require("../users/usersModel");
 const signToken = require("../utils/signToken");
 const stripPassword = require("../middlewares/stripPasswords");
 
-router.post("/register", stripPassword, (req, res) => {
+router.post("/register", (req, res) => {
   const user = req.body;
 
   const hash = bcrypt.hashSync(user.password, 12);
