@@ -6,8 +6,6 @@ const validateRegister = (req, res, next) => {
         res.status(400).json({ message: "Please include the user's name" });
     } else if (!data.role_id) {
         res.status(400).json({ message: "Please include the user's role_id" });
-    } else if (data.role_id !== 1 || data.role_id !== 2) {
-        res.status(400).json({ message: "Please use 1 or 2 for the user's role_id" });
     } else if (!data.email) {
         res.status(400).json({ message: "Please include the user's email" });
     } else if (!data.phone) {
