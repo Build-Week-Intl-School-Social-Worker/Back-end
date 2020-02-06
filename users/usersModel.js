@@ -54,6 +54,12 @@ const addStudentToUser = (userId, student) => {
     });
 }
 
+function remove(id) {
+  return db('users')
+    .where('id', id)
+    .del();
+}
+
 
 module.exports = {
   get,
@@ -61,6 +67,7 @@ module.exports = {
   findBy,
   add,
   update,
+  remove,
   getSocWorkerStudents,
   addStudentToUser
 };

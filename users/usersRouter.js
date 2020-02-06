@@ -4,7 +4,7 @@ const router = require('express').Router();
 const Users = require('./usersModel');
 
 // middlewares
-
+const validateUserId = require('../middlewares/validateUserId');
 // routes
 router.get('/', (req, res) => {
     Users.get()
@@ -79,5 +79,18 @@ router.put('/:id', (req, res) => {
             res.status(500).json({ error: "server error", err });
         })
 })
+
+router.delete('/:id', validateUserId, (req, res) => {
+  // do your magic!
+  const { id } = req.user;
+  const user = req.user;
+  Users.remove(id)
+    .then(removed => {
+      res.status(200).json({ message: "User removed successfully", user });
+    })
+    .catch(err => {
+      res.status(500).json({ message: "server error", err });
+  })
+});
 
 module.exports = router;
