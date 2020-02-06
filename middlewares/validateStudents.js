@@ -12,12 +12,8 @@ const validateStudents = (req, res, next) => {
         res.status(400).json({ message: "Please include the student's bio" });
     } else if (!data.status) {
         res.status(400).json({ message: "Please include the student's status" });
-    } else if (!data.insurance_card) {
-        res.status(400).json({ message: "Please include the student's insurance card information" });
     } else if (!data.expire_date) {
         res.status(400).json({ message: "Please include the student's insurance expire_date" });
-    } else if (!data.birth_cert) {
-        res.status(400).json({ message: "Please include the student's birth_cert" });
     } else if (!data.child_rep) {
         res.status(400).json({ message: "Please include the student's child_rep" });
     } else if (!data.child_rep_phone && !data.child_rep_email) {
