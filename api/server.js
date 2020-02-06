@@ -20,8 +20,8 @@ server.use(express.json());
 // routes
 server.use("/auth", authRouter);
 server.use("/api/roles", rolesRouter);
-server.use("/api/users", usersRouter);
-server.use("/api/students", studentsRouter);
-server.use("/api/visits", visitsRouter);
+server.use("/api/users", authenticate, usersRouter);
+server.use("/api/students", authenticate, studentsRouter);
+server.use("/api/visits", authenticate, visitsRouter);
 
 module.exports = server;
