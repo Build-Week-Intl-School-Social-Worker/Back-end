@@ -12,8 +12,6 @@ const validateStudents = (req, res, next) => {
         res.status(400).json({ message: "Please include the student's bio" });
     } else if (!data.status) {
         res.status(400).json({ message: "Please include the student's status" });
-    } else if (data.status !== "student" || data.status !== "past_student" || data.status !== "visitor") {
-        res.status(400).json({ message: "Please set student status to either student, past_student, or visitor" });
     } else if (!data.insurance_card) {
         res.status(400).json({ message: "Please include the student's insurance card information" });
     } else if (!data.expire_date) {
