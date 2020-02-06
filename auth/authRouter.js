@@ -3,8 +3,10 @@ const bcrypt = require("bcryptjs");
 
 const Users = require("../users/usersModel");
 const signToken = require("../utils/signToken");
+const validateRegister = require('../middlewares/validateRegister');
+const validateLogin = require('../middlewares/validateLogin');
 
-router.post("/register", (req, res) => {
+router.post("/register", validateRegister ,(req, res) => {
   const user = req.body;
 
   const hash = bcrypt.hashSync(user.password, 12);
@@ -19,7 +21,7 @@ router.post("/register", (req, res) => {
     });
 });
 
-router.post("/login", (req, res) => {
+router.post("/login", validateLogin, (req, res) => {
   let { email, password } = req.body;
 
   Users.findBy({ email })

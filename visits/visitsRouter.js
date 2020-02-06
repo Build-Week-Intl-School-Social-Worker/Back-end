@@ -38,17 +38,17 @@ router.post('/', (req, res) => {
     })
 })
 
-// router.put('/:id', (req, res) => {
-//     const { id } = req.params;
-//     const changes = req.body;
-//     const updatedVisit = { ...changes, id };
-//     Users.update(id, changes)
-//         .then(visit => {
-//             res.status(200).json({ message: "Visit updated successfully", updatedVisit });
-//         })
-//         .catch(err => {
-//             res.status(500).json({ error: "server error", err });
-//         })
-// })
+router.put('/:id', (req, res) => {
+    const { id } = req.params;
+    const changes = req.body;
+    const updatedVisit = { ...changes, id };
+    Users.update(id, changes)
+        .then(visit => {
+            res.status(200).json({ message: "Visit updated successfully", updatedVisit });
+        })
+        .catch(err => {
+            res.status(500).json({ error: "server error", err });
+        })
+})
 
 module.exports = router;

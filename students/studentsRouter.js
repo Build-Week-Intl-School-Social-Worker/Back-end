@@ -4,6 +4,7 @@ const router = require('express').Router();
 const Students = require('./studentsModel');
 
 // middlewares
+const validateStudents = require('../middlewares/validateStudents');
 
 // routes
 router.get('/', (req, res) => {
@@ -42,7 +43,7 @@ router.get('/:id', (req, res) => {
 //         })
 // })
 
-router.post('/', (req, res) => {
+router.post('/', validateStudents, (req, res) => {
     const data = req.body;
     Students.add(data)
         .then(student => {

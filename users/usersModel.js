@@ -14,8 +14,8 @@ const findBy = filter => {
   return db("users").where(filter);
 };
 
-const findStudent = filter => {
-  return db("students").where(filter).first();
+const findStudentById = id => {
+  return db("students").where({ id });
 }
 
 const add = user => {
@@ -50,7 +50,7 @@ const addStudentToUser = (userId, student) => {
     .then(ids => {
       [id] = ids;
 
-      return findById(id);
+      return findStudentById(id);
     });
 }
 
