@@ -6,7 +6,8 @@ exports.seed = function(knex) {
       // Inserts seed entries
       return knex('users').insert([
         {id: 1, name: 'Brad Man', role_id: 1, email: "brad@man.com", phone: "515-784-2738", password: "Unprotected", org_name: "Hogwarts"},
-        {id: 2, name: 'Tom Dude', role_id: 1, email: "tom@dude.com", phone: "706-859-5784", password: "Unprotected-2", org_name: "Hogwarts"},
+        { id: 2, name: 'Tom Dude', role_id: 1, email: "tom@dude.com", phone: "706-859-5784", password: "Unprotected-2", org_name: "Hogwarts" },
+        {id: 3, name: 'Jimmy Buffet', role_id: 2, email: "jimmy@dude.com", phone: "432-859-3893", password: "password", org_name: "Buffet University"}
       ]);
     });
 };

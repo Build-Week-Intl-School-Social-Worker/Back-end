@@ -10,7 +10,6 @@ const studentsRouter = require('../students/studentsRouter');
 const rolesRouter = require('../roles/rolesRouter');
 const usersRouter = require('../users/usersRouter');
 const authenticate = require('../auth/authenticate');
-const stripPasswords = require('../middlewares/stripPasswords');
 const visitsRouter = require('../visits/visitsRouter');
 
 // global middlewares

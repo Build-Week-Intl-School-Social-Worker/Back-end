@@ -25,8 +25,6 @@ exports.up = function(knex) {
                 .notNullable();
             tbl.string("org_name", 255)
                 .notNullable();
-            
-
     })
 };
 
