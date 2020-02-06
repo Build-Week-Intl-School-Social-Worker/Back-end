@@ -27,6 +27,21 @@ router.get('/:id', (req, res) => {
         })
 })
 
+// router.get('/:id/all', (req, res) => {
+//     const { id } = req.params;
+//     Students.getSocWorkerStudents(id)
+//         .then(students => {
+//             if (students) {
+//                 res.status(200).json(students);
+//             } else {
+//                 res.status(200).json({ message: "This user does not have any students" });
+//             }
+//         })
+//         .catch(err => {
+//             res.status(500).json({ error: "server error", err });
+//         })
+// })
+
 router.post('/', (req, res) => {
     const data = req.body;
     Students.add(data)

@@ -18,6 +18,8 @@ exports.up = function(knex) {
                 .inTable("students")
                 .onDelete("RESTRICT")
                 .onUpdate("CASCADE");
+            tbl.string("visit_date")
+                .defaultTo(knex.fn.now());
             tbl.string("notes", 1500)
                 .notNullable();
         })

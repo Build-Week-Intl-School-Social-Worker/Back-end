@@ -27,6 +27,35 @@ router.get('/:id', (req, res) => {
         })
 })
 
+router.get('/:id/students', (req, res) => {
+    const { id } = req.params;
+    Users.getSocWorkerStudents(id)
+        .then(students => {
+            if (students) {
+                res.status(200).json(students);
+            } else {
+                res.status(200).json({ message: "This user does not have any students" });
+            }
+        })
+        .catch(err => {
+            res.status(500).json({ error: "server error", err });
+        })
+})
+
+router.post('/:id/students', (req, res) => {
+    const { id } = req.params;
+    const data = req.body;
+    Users.addStudentToUser(id, data)
+        .then(student => {
+            console.log(student);
+            res.status(201).json(student);
+        })
+        .catch(err => {
+            res.status(500).json({ error: "server error", err: err.message });
+        })
+})
+
+
 router.post('/', (req, res) => {
     const data = req.body;
     Users.add(data)

@@ -3,7 +3,6 @@ const bcrypt = require("bcryptjs");
 
 const Users = require("../users/usersModel");
 const signToken = require("../utils/signToken");
-const stripPassword = require("../middlewares/stripPasswords");
 
 router.post("/register", (req, res) => {
   const user = req.body;
