@@ -67,4 +67,16 @@ router.put('/:id', (req, res) => {
         })
 })
 
+router.delete('/:id', (req, res) => {
+  const { id } = req.params;
+
+  Students.remove(id)
+  .then(deleted => {
+      res.status(201).json({ message: `Student successfully deleted`, deleted });
+  })
+  .catch(err => {
+    res.status(500).json({ error: "server error", err: err.message });
+  });
+});
+
 module.exports = router;
