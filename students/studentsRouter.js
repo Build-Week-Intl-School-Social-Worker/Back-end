@@ -72,14 +72,10 @@ router.delete('/:id', (req, res) => {
 
   Students.remove(id)
   .then(deleted => {
-    if (deleted) {
-      res.status(201).json({ message: `Student successfully deleted` });
-    } else {
-      res.status(404).json({ message: 'Could not find student with given id' });
-    }
+      res.status(201).json({ message: `Student successfully deleted`, deleted });
   })
   .catch(err => {
-    res.status(500).json({ error: "server error", err });
+    res.status(500).json({ error: "server error", err: err.message });
   });
 });
 
