@@ -49,7 +49,7 @@ const addStudentToUser = (userId, student) => {
     .then(ids => {
       [id] = ids;
 
-      return findStudentById(id);
+      return findStudentById(student.student_id);
     });
 }
 
