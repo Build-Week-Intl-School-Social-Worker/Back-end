@@ -24,4 +24,9 @@ server.use("/api/users", authenticate, usersRouter);
 server.use("/api/students", authenticate, studentsRouter);
 server.use("/api/visits", authenticate, visitsRouter);
 
+// sanity check
+server.get('/', (req, res) => {
+  res.send(`<h2>I'm alive and well!</h2>`);
+});
+
 module.exports = server;
