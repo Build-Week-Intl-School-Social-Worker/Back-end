@@ -31,11 +31,8 @@ router.get('/:id/students', (req, res) => {
     const { id } = req.params;
     Users.getSocWorkerStudents(id)
         .then(students => {
-            if (students) {
-                res.status(200).json(students);
-            } else {
-                res.status(200).json({ message: "This user does not have any students" });
-            }
+            console.log(students);
+            res.status(200).json(students);
         })
         .catch(err => {
             res.status(500).json({ error: "server error", err });
