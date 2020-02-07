@@ -67,4 +67,20 @@ router.put('/:id', (req, res) => {
         })
 })
 
+router.delete('/:id', (req, res) => {
+  const { id } = req.params;
+
+  Students.remove(id)
+  .then(deleted => {
+    if (deleted) {
+      res.status(201).json({ message: `Student successfully deleted` });
+    } else {
+      res.status(404).json({ message: 'Could not find student with given id' });
+    }
+  })
+  .catch(err => {
+    res.status(500).json({ error: "server error", err });
+  });
+});
+
 module.exports = router;
